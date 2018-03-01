@@ -1,0 +1,21 @@
+version: '3'
+services:
+  export:
+    image: node:9.6.1-alpine
+    working_dir: /app
+    volumes:
+      - '.:/app'
+    ports:
+      - '8080:8080'
+    user: "${USER_MAPPING:-1000:1000}"
+    environment:
+      HOME: /app
+    command: >
+        sh -c '
+        if test -d node_modules;
+        then
+          echo node_modules_exists ;
+        else
+          npm install
+        fi &&
+        npm run export'

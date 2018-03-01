@@ -1,0 +1,8 @@
+{
+  "modules": true,
+  "plugins": {
+    "posthtml-remove-tags": {
+      tags: ['style', 'script']
+    }
+  }
+}
